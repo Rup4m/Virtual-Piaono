@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #054f60, #0e75be);
+    font-family: 'Roboto', sans-serif;
+}
+
+.piano-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.piano {
+    display: flex;
+    position: relative;
+    transform: rotateX(10deg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    background: #202020;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.key {
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 2px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+.white {
+    background-color: #f8f8f8;
+    width: 60px;
+    height: 250px;
+    z-index: 0;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15), inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.black {
+    background-color: #333;
+    width: 40px;
+    height: 150px;
+    position: absolute;
+    z-index: 1;
+    margin-left: -20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), inset 0 -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.black:nth-of-type(2n+1) {
+    margin-left: -30px;
+}
+
+.key:active {
+    transform: translateY(8px);
+}
+
+.key:active.white {
+    background-color: #e0e0e0;
+}
+
+.key:active.black {
+    background-color: #1c1c1c;
+}
+
+.key.active {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.music-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    background-color: #05bbb2;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:focus {
+    outline: none;
+}
+
+button#play-self {
+    background: linear-gradient(135deg, #6e8eff, #5863ff);
+}
+
+button#auto-play-1 {
+    background: linear-gradient(135deg, #ff6b6b, #ff4949);
+}
+
+button#auto-play-2 {
+    background: linear-gradient(135deg, #00b894, #00a572);
+}
+
+/* Extra Styling for Auto Play Mode */
+.auto-play-indicator {
+    display: none;
+    font-size: 18px;
+    color: #00b894;
+    margin-top: 10px;
+}
